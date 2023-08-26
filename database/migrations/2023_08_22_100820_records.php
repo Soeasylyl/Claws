@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('records', function (Blueprint $table) {
+            $table->id();
+            $table->date('date');
+            $table->time('time');
+            $table->string('note');
+            $table->boolean('hidden');
+            $table->timestamps();
+        });
     }
 
     /**

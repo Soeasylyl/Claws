@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/index');
-})->name('dashboard');
+Route::get('/', [DashboardController::class, 'getDataClientsRecords'])->name('dashboard');
 
-Route::get('/clients', function () {
-    return view('pages/clients');
-})->name('clients');
+Route::prefix('clients')->group(function (){
+    Route::get('/', [ClientsController::class, 'getDataClients'])->name('clients');
+    Route::get('/add', [ClientsController::class, 'add'])->name('clients.add');
+    Route::get('/{id}',[ClientsController::class, 'show'])->name('clients.show');
+    Route::patch('/{id}/update',[ClientsController::class, 'update'])->name('clients.update');
+    Route::delete('/{id}/delete',[ClientsController::class,'delete'])->name('clients.delete');
+    Route::get('/search',[ClientsController::class, 'search'])->name('clients.search');
+});
 
-Route::get('/notation', function () {
-    return view('pages/notation');
-})->name('notation');
+Route::get('/notation', [NotationsController::class, 'getDataNotations'])->name('notation');
 
 Route::get('/settings', function () {
     return view('pages/settings');
@@ -32,3 +36,4 @@ Route::get('/settings', function () {
 Route::get('/statistics', function () {
     return view('pages/statistics');
 })->name('statistics');
+

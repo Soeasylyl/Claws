@@ -19,60 +19,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                    </tr>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    </tr>
-                    <tr>
-                        <td>data</td>
-                        <td>rich</td>
-                        <td>dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>information</td>
-                        <td>placeholder</td>
-                        <td>illustrative</td>
-                    </tr>
-                    <tr>
-                        <td>text</td>
-                        <td>random</td>
-                        <td>layout</td>
-                    </tr>
-                    <tr>
-                        <td>dashboard</td>
-                        <td>irrelevant</td>
-                        <td>text</td>
-                    </tr>
-                    <tr>
-                        <td>dashboard</td>
-                        <td>illustrative</td>
-                        <td>rich</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>tabular</td>
-                        <td>information</td>
-                    </tr>
-                    <tr>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>irrelevant</td>
-                        <td>visual</td>
-                    </tr>
-                    <tr>
-                        <td>data</td>
-                        <td>rich</td>
-                        <td>dashboard</td>
-                    </tr>
+
+                    @foreach($clients as $key => $client)
+                        <tr>
+                            <td> {{ $client->name }}</td>
+                            <td> {{ $client->description }}</td>
+                            <td> {{ $client->contacts }}</td>
+                            <td>
+                                <div class="trash__icon_container">
+                                    <a href="{{ route('clients.delete', ['id' => $client->id]) }}"
+                                       onclick="event.preventDefault(); if (confirm('Вы уверены?')) document.getElementById('delete-form-{{ $client->id }}').submit();">
+                                        <div class="trash__icon">
+                                            <div class="trash__icon">
+                                                {!! file_get_contents(public_path('/images/svg/trash-can.svg')) !!}
+                                            </div>
+                                    </a>
+                                    <form id="delete-form-{{ $client->id }}" action="{{ route('clients.delete', ['id' => $client->id]) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

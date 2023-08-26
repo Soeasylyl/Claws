@@ -120,3 +120,21 @@
         cursor: pointer;
     }
 }
+
+.trash__icon_container {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+}
+.trash__icon_container:hover  {
+    svg path:last-child{
+        transform: rotate(-90deg);
+        transition: all 0.5s ease-in-out;
+    }
+}
+

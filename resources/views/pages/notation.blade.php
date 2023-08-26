@@ -10,10 +10,10 @@
             <div class="form-group">
                 <label for="client_id">Выберите клиента:</label>
                 <select name="client_id" id="client_id" class="form-control">
-                    <option value="1">Клиент 1</option>
-                    <option value="2">Клиент 2</option>
-                    <option value="3">Клиент 3</option>
-                    <option value="4">Клиент 4</option>
+                    <option value="">Выберите клиента</option>
+                    @foreach($clients as $client)
+                        <option value="{{ $client->id }}">{{ $client->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
@@ -27,9 +27,10 @@
             <div class="form-group">
                 <label for="price">Цена:</label>
                 <select name="price" id="price" class="form-control">
-                    <option value="20">20р</option>
-                    <option value="25">25р</option>
-                    <option value="30">30р</option>
+                    <option value="" disabled selected>Выберите цену</option>
+                    @foreach($prices as $price)
+                        <option value="{{ $price->id }}">{{ $price->price }}</option>
+                    @endforeach
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Добавить</button>
