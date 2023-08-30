@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -17,7 +18,7 @@ class RecordFactory extends Factory
     public function definition(): array
     {
         return [
-            'date' => fake()->date(),
+            'date' => Carbon::now()->addDays(rand(1, 30))->format('Y-m-d'),
             'time' => fake()->time(),
             'note' => fake()->sentence(),
             'hidden' => false,

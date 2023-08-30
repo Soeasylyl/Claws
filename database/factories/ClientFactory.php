@@ -18,7 +18,7 @@ class ClientFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'description' => fake(200)->paragraph(),
+            'description' => fake(100)->paragraph(),
             'contacts' => fake()->phoneNumber(),
             'hidden' => false,
         ];

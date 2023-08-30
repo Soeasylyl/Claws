@@ -33,7 +33,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Добавить</button>
+            <button type="submit" class="btn_all">Добавить</button>
         </form>
 
     </div>

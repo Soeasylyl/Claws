@@ -1,0 +1,84 @@
+.clients {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+
+        button {
+            margin: 5px;
+        }
+    }
+
+    &__table {
+
+    }
+
+    table {
+
+    }
+
+    &__icon-wrapper {
+        display: flex;
+    }
+
+    &__edit-btn {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+
+        svg {
+            overflow: visible;
+
+            &:hover {
+                path {
+                    transform: rotate(-45deg) scale(0.8);
+                }
+            }
+        }
+
+        svg path {
+            transform-origin: center center;
+            transform: rotate(0) scale(1);
+            transition: all 0.5s ease-in-out;
+        }
+
+        &__trash-container {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+    }
+
+
+    &__trash-icon {
+        svg {
+            path:last-child {
+                transition: all 0.5s ease-in-out;
+            }
+
+            &:hover {
+                path:last-child {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+    }
+
+
+}

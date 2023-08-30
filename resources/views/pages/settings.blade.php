@@ -19,7 +19,7 @@
                 <input type="number" name="material_price" id="material_price" class="form-control" value="" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="submit" class="btn_all">Сохранить</button>
         </form>
     </div>
 {{--   БУДЕТ МЕНЯТЬСЯ --}}

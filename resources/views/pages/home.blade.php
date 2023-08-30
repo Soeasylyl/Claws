@@ -18,7 +18,7 @@
 
                 @foreach($sortedRecords as $record)
                     <tr>
-                        <td>{{ $record->client->name }}</td>
+                        <td>{{  $record->client ? $record->client->name : 'Клиент был случайно удалён' }}</td>
                         <td>{{ $record->date }}</td>
                         <td>{{ $record->time }}</td>
                         <td>{{ $record->timeRemaining }}</td>

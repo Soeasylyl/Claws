@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    display: inline-block;
+    color: $c-black;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
