@@ -72,6 +72,66 @@ class ClientsController extends Controller
         ];
     }
 
+    public function update(
+        Request $request
+    )
+    {
+        $errors = [];
+
+        $description = $request->input('description');
+        if (strlen($description) < 3 || strlen($description) > 500) {
+            $errors[] = [
+                'type' => 'description',
+                'message' => 'Ошибка в описании. Допустимая длина: от 3 до 500 символов.',
+            ];
+        }
+
+        $name = $request->input('name');
+        if (strlen($name) < 3 || strlen($name) > 40) {
+            $errors[] = [
+                'type' => 'name',
+                'message' => 'Ошибка в имени. Допустимая длина: от 3 до 40 символов.',
+            ];
+        }
+
+        $contacts = $request->input('contacts');
+        if (strlen($contacts) < 5 || strlen($contacts) > 40) {
+            $errors[] = [
+                'type' => 'contacts',
+                'message' => 'Ошибка в контактах. Допустимая длина: от 5 до 40 символов.',
+            ];
+        }
+
+        if (!empty($errors)) {
+            return [
+                'status' => false,
+                'errors' => $errors,
+            ];
+        }
+
+        try {
+            Client::where('id', $request->input('id'))
+                ->update(
+                    [
+                        'name' => $request->input('name'),
+                        'description' => $request->input('description'),
+                        'contacts' => $request->input('contacts'),
+                    ]
+                );
+
+        } catch (\Exception $e) {
+            return [
+                'status' => false,
+                'errors' => $e->getMessage(),
+            ];
+        }
+
+        return [
+            'status' => true,
+        ];
+    }
+
+
     public function delete($id)
     {
         $client = Client::find($id);

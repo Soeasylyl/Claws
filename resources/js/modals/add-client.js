@@ -1,8 +1,8 @@
 class addClient {
     constructor() {
         this.modal = document.querySelector('.modal__add_client');
-        this.btnAdd = document.querySelector('#btn__add');
-        this.btnCloseModal = document.querySelector('#close__modal');
+        this.btnAdd = document.querySelector('#client__btn_add');
+        this.btnCloseModal = document.querySelector('#close__add_modal');
         this.btnAddClient = document.querySelector('#add__client');
         this.modalBackground = document.querySelector('.modal_background');
         this.bodyScrollLock = document.body;
@@ -81,7 +81,7 @@ class addClient {
     }
 
     getElementAndErrors(elementId) {
-        const inputElement = document.getElementById(elementId);
+        const inputElement = this.modal.querySelector('#' + elementId);
         const parentDiv = inputElement.parentElement;
         const errorsDiv = parentDiv.querySelector('.errors');
         return { inputElement, errorsDiv };

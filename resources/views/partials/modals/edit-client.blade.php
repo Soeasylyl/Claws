@@ -16,8 +16,8 @@
                 <input type="text" id="contactsClient" placeholder="Как связаться" name="contact">
             </div>
             <div class="wrapper_btn">
-                <button class="btn_all" id="edit__client" type="submit">Изменить</button>
-                <button class="btn_all" id="close__modal" type="submit">Закрыть</button>
+                <button class="main-btn" id="save_changes__edit_modal" type="submit">Сохранить изменения</button>
+                <button class="main-btn" id="close__edit_modal" type="submit">Закрыть</button>
             </div>
         </form>
     </div>

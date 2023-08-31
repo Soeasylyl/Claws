@@ -6,7 +6,7 @@
 
 
 import './modals/add-client.js';
-import './modals/edit-clients.js';
+import './modals/edit-client.js';
 import './pages/clients.js';
 
 import { createApp } from 'vue';
