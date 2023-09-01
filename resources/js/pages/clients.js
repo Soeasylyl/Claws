@@ -1,11 +1,14 @@
 class Clients {
     constructor() {
         this.iconContainers = document.querySelectorAll('.clients__trash-container a');
+        this.searchInput = document.querySelector('.clients__search-bar');
+        this.btnAddNone = document.querySelector('#client__btn_add');
         this.init();
     }
 
     init() {
         this.deleteClient();
+        this.expandedClientInput();
     }
 
     deleteClient() {
@@ -20,6 +23,20 @@ class Clients {
             });
         });
     }
-}
 
+    expandedClientInput() {
+        this.searchInput.addEventListener('click', () => {
+            this.btnAddNone.classList.add('none');
+            this.searchInput.classList.add('expanded');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target !== this.searchInput) {
+                this.btnAddNone.classList.remove('none');
+                this.searchInput.classList.remove('expanded');
+
+            }
+        });
+    }
+}
 new Clients();

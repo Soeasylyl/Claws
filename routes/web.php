@@ -20,10 +20,10 @@ Route::get('/', [DashboardController::class, 'getDataClientsRecords'])->name('da
 
 Route::prefix('clients')->group(function (){
     Route::get('/', [ClientsController::class, 'getDataClients'])->name('clients');
-    Route::post('/add', [ClientsController::class, 'add'])->name('clients.add');
-    Route::get('/{id}',[ClientsController::class, 'show'])->name('clients.show');
-    Route::patch('/{id}/update',[ClientsController::class, 'update'])->name('clients.update');
-    Route::delete('/{id}/delete',[ClientsController::class,'delete'])->name('clients.delete');
+    Route::post('/add', [ClientsController::class, 'addClient'])->name('client.add');
+//    Route::get('/{id}',[ClientsController::class, 'show'])->name('clients.show');
+    Route::patch('/{id}/update',[ClientsController::class, 'updateClient'])->name('client.update');
+    Route::delete('/{id}/delete',[ClientsController::class,'deleteClient'])->name('client.delete');
     Route::get('/search',[ClientsController::class, 'search'])->name('clients.search');
 });
 

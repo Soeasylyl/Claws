@@ -27,9 +27,9 @@ class editClient {
                 this.description = link.getAttribute('data-description');
                 this.contacts = link.getAttribute('data-contacts');
 
-                this.nameInput = this.modal.querySelector('#nameClient');
-                this.descriptionInput = this.modal.querySelector('#descriptionClient');
-                this.contactsInput = this.modal.querySelector('#contactsClient');
+                this.nameInput = this.modal.querySelector('.nameClient');
+                this.descriptionInput = this.modal.querySelector('.descriptionClient');
+                this.contactsInput = this.modal.querySelector('.contactsClient');
 
                 this.nameInput.value = this.name;
                 this.descriptionInput.value = this.description;
@@ -96,7 +96,7 @@ class editClient {
     }
 
     getElementAndErrors(elementId) {
-        const inputElement = this.modal.querySelector('#' + elementId);
+        const inputElement = this.modal.querySelector('.' + elementId);
         const parentDiv = inputElement.parentElement;
         const errorsDiv = parentDiv.querySelector('.errors');
         return { inputElement, errorsDiv };

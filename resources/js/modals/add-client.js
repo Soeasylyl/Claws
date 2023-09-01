@@ -37,9 +37,9 @@ class addClient {
     addClient() {
         this.btnAddClient && this.btnAddClient.addEventListener("click", async (event) => {
             event.preventDefault();
-            const name = this.modal.querySelector('#nameClient');
-            const description = this.modal.querySelector('#descriptionClient');
-            const contacts = this.modal.querySelector('#contactsClient');
+            const name = this.modal.querySelector('.nameClient');
+            const description = this.modal.querySelector('.descriptionClient');
+            const contacts = this.modal.querySelector('.contactsClient');
 
             const response = await fetch('/clients/add', {
                 method: 'POST',
@@ -81,7 +81,7 @@ class addClient {
     }
 
     getElementAndErrors(elementId) {
-        const inputElement = this.modal.querySelector('#' + elementId);
+        const inputElement = this.modal.querySelector('.' + elementId);
         const parentDiv = inputElement.parentElement;
         const errorsDiv = parentDiv.querySelector('.errors');
         return { inputElement, errorsDiv };

@@ -5,15 +5,15 @@
         <form>
             <div class="inputWrapper">
                 <div class="errors"></div>
-                <input type="text" id="nameClient" placeholder="ФИО" name="Name">
+                <input type="text" class="nameClient" placeholder="ФИО" name="Name">
             </div>
             <div class="inputWrapper">
                 <div class="errors"></div>
-                <textarea placeholder="Описание" id="descriptionClient" name="description"></textarea>
+                <textarea placeholder="Описание" class="descriptionClient" name="description"></textarea>
             </div>
             <div class="inputWrapper">
                 <div class="errors"></div>
-                <input type="text" id="contactsClient" placeholder="Как связаться" name="contact">
+                <input type="text" class="contactsClient" placeholder="Как связаться" name="contact">
             </div>
             <div class="wrapper_btn">
                 <button class="main-btn" id="add__client" type="submit">Добавить</button>

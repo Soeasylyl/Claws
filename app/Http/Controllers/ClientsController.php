@@ -11,12 +11,14 @@ class ClientsController extends Controller
 {
     public function getDataClients()
     {
-        $clients = Client::where('hidden', false)->get();
+        $clients = Client::where('hidden', false)
+            ->orderBy('created_at', 'desc') // Сортировка по убыванию даты создания
+            ->paginate(7);
 
-        return view('pages/clients', compact('clients'));
+        return view('pages.clients', compact('clients'));
     }
 
-    public function add(
+    public function addClient(
         Request $request,
     )
     {
@@ -72,7 +74,7 @@ class ClientsController extends Controller
         ];
     }
 
-    public function update(
+    public function updateClient(
         Request $request
     )
     {
@@ -132,7 +134,7 @@ class ClientsController extends Controller
     }
 
 
-    public function delete($id)
+    public function deleteClient($id)
     {
         $client = Client::find($id);
         $recordsExist = Record::where('client_id', $id)->exists();
