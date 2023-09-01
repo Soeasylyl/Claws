@@ -21,10 +21,9 @@ Route::get('/', [DashboardController::class, 'getDataClientsRecords'])->name('da
 Route::prefix('clients')->group(function (){
     Route::get('/', [ClientsController::class, 'getDataClients'])->name('clients');
     Route::post('/add', [ClientsController::class, 'addClient'])->name('client.add');
-//    Route::get('/{id}',[ClientsController::class, 'show'])->name('clients.show');
     Route::patch('/{id}/update',[ClientsController::class, 'updateClient'])->name('client.update');
     Route::delete('/{id}/delete',[ClientsController::class,'deleteClient'])->name('client.delete');
-    Route::get('/search',[ClientsController::class, 'search'])->name('clients.search');
+    Route::get('/search',[ClientsController::class, 'searchClient'])->name('clients.search');
 });
 
 Route::get('/notation', [NotationsController::class, 'getDataNotations'])->name('notation');

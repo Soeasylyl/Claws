@@ -149,4 +149,18 @@ class ClientsController extends Controller
 
         return redirect()->route('clients')->with('success', 'Клиент успешно удалён');
     }
+
+    public function searchClient(Request $request)
+    {
+        $searchTerm = $request->input('search');
+
+        $clients = Client::where('hidden', false)
+            ->where('name', 'like', "%$searchTerm%")
+            ->orderBy('created_at', 'desc')
+            ->paginate(7);
+
+        return response()->json([
+            'htmlClients' => view('partials.components.search-clients', compact('clients'))->render(),
+        ]);
+    }
 }
