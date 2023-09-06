@@ -16,7 +16,7 @@ class Clients {
     }
 
      searchClients () {
-        this.searchInput.addEventListener('input', async  () => {
+         this.searchInput && this.searchInput.addEventListener('input', async  () => {
             const searchTerm = this.searchInput.value.trim();
             const response = await fetch(`/clients/search?search=${searchTerm}`, {
                 method: 'GET',
@@ -40,7 +40,7 @@ class Clients {
     }
 
     expandedClientInput() {
-        this.searchInput.addEventListener('click', () => {
+        this.searchInput && this.searchInput.addEventListener('click', () => {
             this.btnAddNone.classList.add('none');
             this.searchInput.classList.add('expanded');
             this.searchInput.placeholder = '';
@@ -49,9 +49,9 @@ class Clients {
 
         document.addEventListener('click', (event) => {
             if (event.target !== this.searchInput) {
-                this.btnAddNone.classList.remove('none');
-                this.searchInput.classList.remove('expanded');
-                this.searchInput.placeholder = 'Поиск клиента';
+                this.btnAddNone && this.btnAddNone.classList.remove('none');
+                this.searchInput && this.searchInput.classList.remove('expanded');
+                this.searchInput && (this.searchInput.placeholder = 'Поиск клиента');
             }
         });
     }
